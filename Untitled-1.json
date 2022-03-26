@@ -1,0 +1,28 @@
+[
+  {
+    "modificationDate": "1648208478000",
+    "size": 39547,
+    "mime": "image/jpeg",
+    "height": 1856,
+    "width": 1392,
+    "path": "file:///data/user/0/com.testimageupload/cache/react-native-image-crop-picker/IMG_20220325_204050_3.jpg"
+  }
+]
+[
+  {
+    "exif": null,
+    "filename": "IMG_0002.JPG",
+    "path": "/Users/rock/Library/Developer/CoreSimulator/Devices/21B05E92-4772-492E-B746-CFE2D4F3CB27/data/Containers/Data/Application/4906DABF-AE06-47C5-B718-B43BAF1DA30E/tmp/react-native-image-crop-picker/5CA3F6D3-0043-4B86-8CC7-5A32D1C2EB43.jpg",
+    "height": 2848,
+    "width": 4288,
+    "data": null,
+    "modificationDate": "1441224147",
+    "localIdentifier": "B84E8479-475C-4727-A4A4-B77AA9980897/L0/001",
+    "size": 2604768,
+    "sourceURL": "file:///Users/rock/Library/Developer/CoreSimulator/Devices/21B05E92-4772-492E-B746-CFE2D4F3CB27/data/Media/DCIM/100APPLE/IMG_0002.JPG",
+    "mime": "image/jpeg",
+    "cropRect": null,
+    "duration": null,
+    "creationDate": "1255122560"
+  }
+]
