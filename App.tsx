@@ -78,13 +78,13 @@ const App = () => {
 
   const handleImages = React.useCallback(newImages => {
     setImages(prevImages => {
-      return [null, ...prevImages, ...newImages];
+      return [...prevImages, ...newImages];
     });
   }, []);
 
   const handleSubmit = React.useCallback(async () => {
     const _form = new FormData();
-    images.map((image, idx) => {
+    images.slice(1).map((image, idx) => {
       _form.append('image_' + idx, {
         type: image.mime,
         name: 'image_' + idx,
@@ -122,6 +122,9 @@ const App = () => {
         contentContainerStyle={styles.contentContainer}>
         {images.slice(1).length ? (
           images.slice(1).map((image, idx) => {
+            if (image === null) {
+              return null;
+            }
             const width = Math.floor(Dimensions.get('screen').width / 2);
             const height = (width * image.height) / image.width;
             return (
