@@ -74,7 +74,7 @@ const Header = forwardRef((props, ref) => {
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
-  const [images, setImages] = React.useState<any[]>([null]);
+  const [images, setImages] = React.useState<any[]>([]);
 
   const handleImages = React.useCallback(newImages => {
     setImages(prevImages => {
@@ -84,7 +84,7 @@ const App = () => {
 
   const handleSubmit = React.useCallback(async () => {
     const _form = new FormData();
-    images.slice(1).map((image, idx) => {
+    images.map((image, idx) => {
       _form.append('image_' + idx, {
         type: image.mime,
         name: 'image_' + idx,
@@ -120,25 +120,28 @@ const App = () => {
         ))}
         stickyHeaderIndices={[0]}
         contentContainerStyle={styles.contentContainer}>
-        {images.slice(1).length ? (
-          images.slice(1).map((image, idx) => {
-            if (image === null) {
-              return null;
-            }
-            const width = Math.floor(Dimensions.get('screen').width / 2);
-            const height = (width * image.height) / image.width;
-            return (
-              <Image
-                style={{width, height}}
-                key={image.path + '/' + idx}
-                source={{uri: image.path}}
-                resizeMode={'contain'}
-              />
-            );
-          })
-        ) : (
-          <Text>{'No Image Found'}</Text>
-        )}
+        <Text>{'Header'}</Text>
+        <View style={styles.scrollView}>
+          {images.length ? (
+            images.map((image, idx) => {
+              if (image === null) {
+                return null;
+              }
+              const width = Math.floor(Dimensions.get('screen').width / 2);
+              const height = (width * image.height) / image.width;
+              return (
+                <Image
+                  style={{width, height}}
+                  key={image.path + '/' + idx}
+                  source={{uri: image.path}}
+                  resizeMode={'contain'}
+                />
+              );
+            })
+          ) : (
+            <Text>{'No Image Found'}</Text>
+          )}
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -166,6 +169,10 @@ const styles = StyleSheet.create({
   contentContainer: {
     // flex: 1,
     backgroundColor: 'pink',
+  },
+  scrollView: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
   },
 });
 
